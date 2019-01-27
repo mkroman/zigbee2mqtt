@@ -8,6 +8,10 @@ services:
 node_js:
   - "10"
 
+before_install:
+  - echo '{"experimental": true}' | sudo tee /etc/docker/daemon.json
+  - sudo systemctl restart docker
+
 install:
   - npm install
 
